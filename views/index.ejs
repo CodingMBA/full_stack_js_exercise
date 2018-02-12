@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Exercise: Full Stack - JavaScript</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <h3 class="text-muted">Exercise: Full Stack - JavaScript</h3>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="btn-group btn-group-justified">
+                <!-- 'See All' button returns user to start of images -->
+                <a href="/?page=1" class="btn btn-default">
+                  <span class="glyphicon glyphicon-list"></span>
+                  See All
+                </a>
+                <!-- 'Random button takes user to random page' -->
+                <a href="/random" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-random"></span>
+                  Random
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loader Row -->
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!-- loader class hidden by default in CSS.
+          jQuery activates on window load then fades out. -->
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <!-- Gif Row -->
+    <div class="row">
+      <!-- Iterate through current page gifs array; display each image -->
+        <% gifsList.forEach( function( gif ) { %>
+          <div class="col-md-12">
+            <div class="gif-entry">
+              <img src="<%= gif %>">
+            </div>
+          </div>
+        <% }) %>
+    </div>
+    <!-- Current page and pagination logic.
+    Provided some room for more pages in case lower pageSize.-->
+    <div class="text-center">
+      <% if (pageCount > 1) { %>
+        <ul class="pagination">
+          <% if (currentPage > 1) { %>
+            <li>
+              <a href="/?page=1">&laquo;</a>
+            </li>
+          <% } %>
+        <% var i = 1;
+          if (currentPage > 5) {
+            i = +currentPage - 4;
+          } %>
+        <% if (i !== 1) { %>
+          <li class="disabled">
+            <a href="#">...</a>
+          </li>
+        <% } %>
+          <% for (i; i<=pageCount; i++) { %>
+            <% if (currentPage == i) { %>
+              <li class="active">
+                <span>
+                  <%= i %>
+                </span>
+              </li>
+            <% } else { %>
+              <li>
+                <a href="/?page=<%= i %>">
+                  <%= i %>
+                </a>
+              </li>
+            <% } %>
+              <% if (i == (+currentPage + 4)) { %>
+                <li class="disabled">
+                  <a href="#">...</a>
+                </li>
+              <% break; } %>
+            <% } %>
+          <% if (currentPage != pageCount) { %>
+            <li>
+              <a href="/?page=<%= pageCount %>">&raquo;</a>
+            </li>
+          <% } %>
+        </ul>
+      <% } %>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2017 Carimus, Inc.</p>
+    </footer>
+
+  </div> <!-- /container -->
+
+
+<script src="vendor/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Exercise: Full Stack - JavaScript</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header clearfix">
+        <h3 class="text-muted">Exercise: Full Stack - JavaScript</h3>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="btn-group btn-group-justified">
+                <a href="/" class="btn btn-default">
+                  <span class="glyphicon glyphicon-list"></span>
+                  Back
+                </a>
+                <a href="/random" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-random"></span>
+                  Random
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loader Row -->
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="loader"></div>
+      </div>
+    </div>
+    <!-- Random Image -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="gif-entry">
+          <img src="<%= gifsAll[Math.floor(Math.random() * gifsAll.length)] %>">
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2017 Carimus, Inc.</p>
+    </footer>
+
+  </div>
+  <!-- /container -->
+
+
+<script src="vendor/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="main.js"></script>
+</body>
+
+</html>
